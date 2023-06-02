@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <canvas id="myChart" width="400" height="200"></canvas>
+
+    <script>
+        // Créer un objet de type Chart
+        var ctx = document.getElementById('myChart').getContext('2d');
+        var chart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: [],
+                datasets: [{
+                    label: 'Temperature',
+                    backgroundColor: 'rgb(255, 99, 132)',
+                    borderColor: 'rgb(255, 99, 132)',
+                    data: []
+                },
+                {
+                    label: 'Humidity',
+                    backgroundColor: 'rgb(153, 102, 255)',
+                    borderColor: 'rgb(153, 102, 255)',
+                    data: []
+                },
+                {
+                    label: 'Pressure',
+                    backgroundColor: 'rgb(183, 204, 248, 0.717)',
+                    borderColor: 'rgb(183, 204, 248, 0.717)',
+                    data: []
+                }]
+            },
+            options: {}
+        });
+
+        // Ajouter des données toutes les 3 secondes
+        $(document).ready(function() {
+            setInterval(function() {
+                $.get("http://localhost:5000/realtime", function(data) {
+                    var x = new Date();
+                    var y1 = parseFloat(data["temperature"]);
+                    var y2 = parseFloat(data["humidity"]);
+                    var y3 = parseFloat(data["Pressure"]);
+                    chart.data.labels.push(x.toLocaleTimeString());
+                    chart.data.datasets[0].data.push(y1);
+                    chart.data.datasets[1].data.push(y2);
+                    chart.data.datasets[2].data.push(y3);
+                    chart.update();
+                });
+            }, 3000);
+        });
+    </script>
+</body>
+</html>

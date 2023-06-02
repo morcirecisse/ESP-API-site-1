@@ -1,0 +1,68 @@
+<!-- temperature.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>temperature</title>
+    <link rel="stylesheet" href="temperature.css">
+</head>
+
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Temperature</th>
+                <th>Humidity</th>
+                <th>Pressure</th>
+            </tr>
+        </thead>
+        <tbody id="temperature-data">
+        </tbody>
+    </table>
+
+    <script>
+        function fetchTemperature() {
+            fetch('http://localhost:5000/temperature') // Exemple d'URL de l'API d'humidité
+                .then(response => response.json())
+                .then(data => {
+                    const temperatureDataElement = document.getElementById('temperature-data');
+                    temperatureDataElement.innerHTML = ''; // Effacer les anciennes données
+
+                    // Parcourir les 10 premières données et les ajouter au tableau
+                    data.slice(0, 10).forEach(entry => {
+                        const row = document.createElement('tr');
+
+                        const idCell = document.createElement('td');
+                        idCell.textContent = entry.id;
+                        row.appendChild(idCell);
+
+                        const temperatureCell = document.createElement('td');
+                        temperatureCell.textContent = entry.temperature;
+                        row.appendChild(temperatureCell);
+
+                        const humidityCell = document.createElement('td');
+                        humidityCell.textContent = entry.humidity;
+                        row.appendChild(humidityCell);
+
+                        const pressureCell = document.createElement('td');
+                        pressureCell.textContent = entry.pressure;
+                        row.appendChild(pressureCell);
+
+                        temperatureDataElement.appendChild(row);
+                    });
+                })
+                .catch(error => {
+                    console.error('Error fetching temperature:', error);
+                });
+        }
+
+        fetchTemperature();
+    </script>
+
+</body>
+
+</html>

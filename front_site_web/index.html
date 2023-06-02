@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>STATION METEO</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+<body>
+  <div class="header">
+    <h1>STATION METEO</h1>
+  
+  </div>
+  <div class="rectangle2"> 
+    <div class="tabs">
+      <a href="temperature.html" class="tab" id="temperatureTab" onclick="showTemperature()">temperature</a>
+      <a href="humidity.html" class="tab" id="humidityTab" onclick="showHumidity()">humidity</a>
+      <a href="pressure.html" class="tab" id="pressureTab" onclick="showPressure()">Pressure</a>
+      <a href="graphique.html" class="tab" id="chartTab" onclick="showChart()">Chart</a>
+    </div> 
+  </div>
+  <div class="content">
+    <div id="dataDisplay" class="weather"></div>
+    <canvas id="chart"></canvas>
+  </div>
+ 
+</body>
+</html>
