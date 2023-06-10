@@ -39,3 +39,12 @@ function showPressure() {
   fetchData("/realtime/pressure", "pressureTable");
 }
 
+// Fonction pour activer/désactiver le menu burger
+function toggleMenu() {
+  const menu = document.querySelector('.tabs');
+  menu.classList.toggle('active');
+}
+
+// Écouteur d'événement pour le clic sur le menu burger
+const burgerMenu = document.querySelector('.burger');
+burgerMenu.addEventListener('click', toggleMenu);
