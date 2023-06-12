@@ -15,9 +15,7 @@
         <thead>
             <tr>
                 <th>ID</th>
-                <th>Temperature</th>
                 <th>Humidity</th>
-                <th>Pressure</th>
             </tr>
         </thead>
         <tbody id="humidity-data">
@@ -35,23 +33,15 @@
                     // Parcourir les 10 premières données et les ajouter au tableau
                     data.slice(0, 10).forEach(entry => {
                         const row = document.createElement('tr');
-
                         const idCell = document.createElement('td');
                         idCell.textContent = entry.id;
                         row.appendChild(idCell);
-
-                        const temperatureCell = document.createElement('td');
-                        temperatureCell.textContent = entry.temperature;
-                        row.appendChild(temperatureCell);
 
                         const humidityCell = document.createElement('td');
                         humidityCell.textContent = entry.humidity;
                         row.appendChild(humidityCell);
 
-                        const pressureCell = document.createElement('td');
-                        pressureCell.textContent = entry.pressure;
-                        row.appendChild(pressureCell);
-
+                       
                         humidityDataElement.appendChild(row);
                     });
                 })

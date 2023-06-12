@@ -16,8 +16,6 @@
             <tr>
                 <th>ID</th>
                 <th>Temperature</th>
-                <th>Humidity</th>
-                <th>Pressure</th>
             </tr>
         </thead>
         <tbody id="temperature-data">
@@ -26,7 +24,7 @@
 
     <script>
         function fetchTemperature() {
-            fetch('http://localhost:5000/temperature') // Exemple d'URL de l'API d'humidité
+            fetch('http://localhost:5000/temperature') // Exemple d'URL de l'API de temperature
                 .then(response => response.json())
                 .then(data => {
                     const temperatureDataElement = document.getElementById('temperature-data');
@@ -43,14 +41,6 @@
                         const temperatureCell = document.createElement('td');
                         temperatureCell.textContent = entry.temperature;
                         row.appendChild(temperatureCell);
-
-                        const humidityCell = document.createElement('td');
-                        humidityCell.textContent = entry.humidity;
-                        row.appendChild(humidityCell);
-
-                        const pressureCell = document.createElement('td');
-                        pressureCell.textContent = entry.pressure;
-                        row.appendChild(pressureCell);
 
                         temperatureDataElement.appendChild(row);
                     });

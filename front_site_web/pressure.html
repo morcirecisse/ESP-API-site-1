@@ -15,8 +15,6 @@
         <thead>
             <tr>
                 <th>ID</th>
-                <th>Temperature</th>
-                <th>Humidity</th>
                 <th>Pressure</th>
             </tr>
         </thead>
@@ -39,14 +37,6 @@
                         const idCell = document.createElement('td');
                         idCell.textContent = entry.id;
                         row.appendChild(idCell);
-
-                        const temperatureCell = document.createElement('td');
-                        temperatureCell.textContent = entry.temperature;
-                        row.appendChild(temperatureCell);
-
-                        const humidityCell = document.createElement('td');
-                        humidityCell.textContent = entry.humidity;
-                        row.appendChild(humidityCell);
 
                         const pressureCell = document.createElement('td');
                         pressureCell.textContent = entry.pressure;
