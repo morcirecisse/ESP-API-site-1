@@ -12,19 +12,15 @@
   <div class="container">
     <div class="header sticky-header">
       <h1>STATION METEO</h1>
-      <div class="burger">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
     </div>
-    <div class="rectangle2"></div>
+    <div class="rectangle2">
     <div class="tabs">
       <a class="tab" href="temperature.html" onclick="showTemperature()">Temperature</a>
       <a class="tab" href="humidity.html" onclick="showHumidity()">Humidity</a>
       <a class="tab" href="pressure.html" onclick="showPressure()">Pressure</a>
       <a class="tab" href="graphique.html">Chart</a>
     </div>
+  </div>
     <div class="content">
       <canvas id="canvas"></canvas>
       <div class="weather">
@@ -63,6 +59,7 @@
   </div>
 
   <script src="script.js"></script>
+
 </body>
 
 </html>

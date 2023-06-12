@@ -33,7 +33,7 @@
             var x = new Date();
             var y1 = parseFloat(data["degre"]);
             var y2 = parseFloat(data["taux_humidite"]);
-            var y3 = parseFloat(data["hPa"]);
+            var y3 = parseFloat(data["pressure"]);
             chart.data.labels.push(x.toLocaleTimeString());
             chart.data.datasets[0].data.push(y1);
             chart.data.datasets[1].data.push(y2);
